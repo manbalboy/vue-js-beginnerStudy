@@ -10,20 +10,41 @@
 
     </div>
     <script>
+        
         var div = document.querySelector('#app');
         var viewModel = {};
-        Object.defineProperty(viewModel, 'str',{
-            get:function(){
-                console.log('접근');
-            },
-            set:function(newValue){
-                console.log('할당',newValue);
-                div.innerHTML=newValue;
-            }
-        });
-        
+        // Object.defineProperty(viewModel, 'str',{
+        //     get:function(){
+        //         console.log('접근');
+        //     },
+        //     set:function(newValue){
+        //         console.log('할당',newValue);
+        //         div.innerHTML=newValue;
+        //     }
+        // });
 
-        div.innerHTML='Hello world!!!';
+
+        //위의 코드 라이브러리화 하기 
+        (function () {
+            function init() {
+                Object.defineProperty(viewModel, 'str',{
+                    get:function(){
+                        console.log('접근');
+                    },
+
+                    set:function(newValue){
+                        console.log('할당',newValue);
+                        render (newValue);
+                    }
+                });
+            };
+
+            function render (vStr) {
+                div.innerHTML=vStr;
+            }
+
+            init();
+        })();
     </script>
 </body>
 </html>
