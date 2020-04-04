@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el :'#app',
+            data : {
+                message: 'Hello Vue'
+            }
+        });
+
+        // 인스턴스에서 사용할수 있는 속성
+        // new Vue({
+        //     el:,
+        //     template:,
+        //     data:,
+        //     methods:,
+        //     created:,
+        //     watch:,
+        // });
+
+        // el: 인스턴스가 그려지는 화면의 시작점
+        // template : 화면에 표시할 요소 (HTML, CSS)
+        // data : 뷰의 반응성이 반영된 데이터 속성
+        // methods : 화면의 동작과 이벤트 로직을 제어하는 메서드 
+        // created : 뷰의 라이프 사이클과 관련된 속성
+        // watch : data에서 정의한 속성이 변화했을 때 추가 동작을 수행할 수 있게 정의하는 속성
+
+    </script>
+</body>
+
+
