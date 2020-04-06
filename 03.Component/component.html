@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+        <!--
+     @ 작성자 : 정  훈 
+     @ 이메일 : manbalboy@hanmail.net 
+     @ Git : https://github.com/manbalboy/toyScript   ,  http://manbalboy.iptime.org:30000/hjeong/toyscript
+     @ Date : 2020.04.07
+     @ Vue.js 컴포넌트의 이해 
+    -->
+<head>
+    <!-- manbalboy 공통 JS -->
+    <script src="../hjeong.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <app-header></app-header>
+        <app-content></app-content>
+        <app-footer></app-footer>
+    </div>
+
+    <div id="app2">
+        <app-header></app-header>
+        <!-- <app-footer></app-footer>  에러 지역 컴포넌트 등록 해야함 -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // Vue.component ('컴포넌트 이름', 컴포넌트 내용);
+        // 전역 컴포넌트 
+        Vue.component ('app-header', {
+            template: '<h1>Header</h1>'
+        });
+
+        Vue.component ('app-content', {
+            template: '<div>content</div>'
+        });
+
+
+        //지역 컴포넌트 등록방식
+        new Vue({
+            el : '#app' ,
+            components : {
+                //'컴포넌트 이름 ' : {내용} 
+                'app-footer' : {
+                    template : '<footer>footer</footer>'
+                }
+            }
+        });
+
+        new Vue({
+            el : '#app2' ,
+        });
+    </script>
+
+    
+</body>
+</html>
