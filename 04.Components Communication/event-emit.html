@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--
+     @ 작성자 : 정  훈 
+     @ 이메일 : manbalboy@hanmail.net 
+     @ Git : https://github.com/manbalboy   ,  http://manbalboy.iptime.org:30000/hjeong/vuebeginner
+     @ Date : 2020.04.08
+     @ Vue.js Event emit 속성
+    -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../hjeong.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <app-header v-on:하위 컴포넌트에서 발생한 이벤트이름 ="상위컴포넌트의 메서드이름"></app-header> -->
+        <app-header v-on:pass ="logText" v-bind:propsdata="num"></app-header>
+        <app-content v-on:add="addNum"></app-content>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var appHeader = {
+            template : '<button v-on:click="passEvent">{{propsdata}}</button>',
+            props: ['propsdata'],
+            methods: {
+                passEvent: function(){
+                    this.$emit('pass')
+                }
+            },
+        }
+
+        var appContent = {
+            template : '<button v-on:click="addNumber">add</button>',
+            methods: {
+                addNumber: function(){
+                    this.$emit('add');
+                }
+            },
+        }
+        new Vue({
+            el : '#app',
+            components : {
+                'app-header' : appHeader ,
+                'app-content' : appContent,
+            },
+            methods : {
+                logText : function() {
+                    console.log('hi');
+                },
+                addNum : function() {
+                    this.num++
+                }
+            },
+            data: {
+                num:10
+            }
+
+            
+        });
+    </script>
+</body>
+</html>

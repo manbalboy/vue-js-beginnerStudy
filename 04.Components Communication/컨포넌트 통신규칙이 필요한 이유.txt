@@ -1,0 +1,3 @@
+내려가는 Data 는 Props
+
+올라가는 Event
