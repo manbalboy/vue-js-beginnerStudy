@@ -15,6 +15,10 @@
 </head>
 <body>
     <div id="app">
+        <div>
+            <router-link to="/login">Login</router-link>
+            <router-link to="/main">Main</router-link>
+        </div>
         <router-view></router-view>
     </div>
     
@@ -52,10 +56,6 @@
             el: '#app',
             router: router    
         });
-
-
-
-
     </script>
 </body>
 </html>
