@@ -4,7 +4,7 @@
      @ 작성자 : 정  훈 
      @ 이메일 : manbalboy@hanmail.net 
      @ Git : https://github.com/manbalboy   ,  http://manbalboy.iptime.org:30000/hjeong/vuebeginner
-     @ Date : 2020.04.10
+     @ Date : 2020.04.11
      @ Vue.js 뷰 라우터 
     -->
 <head>
@@ -23,6 +23,7 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- CDN방식 -->
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script>
         var LoginComponent ={
@@ -32,9 +33,11 @@
         var MainComponent = {
             template : '<div>main</div>'
         };
+
         var router = new VueRouter({
-            
             //routes 페이지의 라우팅 정보 
+            //mode 에 history를 넣어주면 #태그가 없어짐.
+            mode:"history",
             routes : [
                 {
                     // 페이지의 url 이름
@@ -46,8 +49,6 @@
                 {
                     path: '/main',
                     component :MainComponent
-
-
                 }
             ]
         });
