@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+
+
+
+        <my-component></my-component>
+        <my-local-component></my-local-component>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //컴포넌트 이름 MyComponent , my-component 똑같다. 번역기가 이렇게함 단지 main 이렇게 단일 컴포넌트 이름 쓰면 X
+        Vue.component("MyComponent",{
+            template : '<div> 전역컴포넌트 </div>'
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+            message: 'Hello Vue.js'
+            },
+            components : {
+                'my-local-component':   {template :'<div> 지역컴포넌트 </div>'}
+            },
+            beforeCreate : function(){
+                console.log('beforeCreate');
+            },
+            created : function(){
+                console.log('created');
+            },
+            mounted : function(){
+                console.log('mounted');
+            },
+            updated : function(){
+                console.log('updated');
+            },
+        })
+    </script>
+</body>
+</html>
